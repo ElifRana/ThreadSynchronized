@@ -8,12 +8,11 @@ public class Counter implements Runnable {
         decrement();
     }
 
-    private void increment() {
+    private synchronized void increment() {
         for (int i = 0; i < 5; i++) {
-            synchronized (this) {
                 value++;
                 System.out.println("Increment: " + this.value);
-            }
+
         }
     }
     private void decrement() {
